@@ -1,0 +1,30 @@
+{
+  "name": "thread_app",
+  "version": "1.0.1",
+  "description": "Backend for my threads app, which is build with graphql, postgres adn docker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node build/index.js",
+    "dev": "tsc-watch --onSuccess \"npm start\""
+  },
+  "keywords": [
+    "backend",
+    "express",
+    "graphql",
+    "docker",
+    "node",
+    "typescript"
+  ],
+  "author": "sahil sharma",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "tsc-watch": "^6.2.0",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.11.0",
+    "express": "^4.21.0"
+  }
+}
