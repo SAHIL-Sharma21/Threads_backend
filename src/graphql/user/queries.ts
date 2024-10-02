@@ -1,3 +1,3 @@
 export const Queries = `
-    hello: String
+    getUserToken(email: String!, password: String!): String
 `;
