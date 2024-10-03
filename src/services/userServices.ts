@@ -76,6 +76,28 @@ class UserService {
 
         return token;
     }
+
+    //decode token 
+    public static decodeJwtToken(token:string){
+        return JWT.verify(token, JWT_SECRET);
+    }
+
+    //get user by id
+    public static async getuserByID(id: string){
+        try {
+            const user = await prisma.user.findUnique({
+                where: {
+                    id
+                }
+            })
+            if (!user){
+                throw new Error('user not found');
+            }
+            return user;
+        } catch (error) {
+            throw new Error('user not found');
+        }
+    }
 }
 
 export default UserService;

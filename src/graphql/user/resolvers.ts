@@ -7,6 +7,13 @@ const queries = {
             password: payload.password,
         })
         return token;
+    },
+    getCurrentLoggedInUser: async(_:any, para:any, context: any) => {
+        if(context && context.user){
+            const user = await UserService.getuserByID(context.user?.id);
+            return user; 
+        }
+        throw new Error('You are not authenticated');
     }
 };
 
