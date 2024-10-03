@@ -1,7 +1,7 @@
 //graphql server
-
 import { ApolloServer } from "@apollo/server";
 import {User} from './user'
+import { Post } from "./posts";
 
 
 async function createGraphQlServer() {
@@ -9,21 +9,26 @@ async function createGraphQlServer() {
         typeDefs: `
 
             ${User.typeDefs}
+            ${Post.typeDefs}
             type Query {
                 ${User.Queries}
+                ${Post.Queries}
             }
     
             type Mutation {
                 ${User.mutations}
+                ${Post.mutations}
             }
     
         `,//schema
         resolvers: {
             Query :{
-                ...User.resolvers.queries
+                ...User.resolvers.queries,
+                ...Post.resolvers.queries
             },
             Mutation: {
-                ...User.resolvers.muations
+                ...User.resolvers.muations,
+                ...Post.resolvers.mutations
             }
         }
     });
